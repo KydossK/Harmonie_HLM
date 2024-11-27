@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion</title>
     @vite(['resources/css/login.css', 'resources/js/login.js'])
 </head>
+
 <body>
+    <a href="{{ route('home') }}" class="btn-custom">Retour à l'accueil</a>
     <div class="container">
         <h1>Connexion</h1>
         @if ($errors->any())
@@ -29,4 +32,8 @@
         </p>
     </div>
 </body>
+
+
+</body>
+
 </html>

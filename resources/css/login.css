@@ -1,15 +1,17 @@
-/* login.css */
+/* Global settings */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    background-color: #1e3a5f;
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column; /* Permet d'aligner les éléments verticalement */
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
+/* Container */
 .container {
     background-color: #ffffff;
     border-radius: 10px;
@@ -20,6 +22,24 @@ body {
     text-align: center;
 }
 
+/* Button "Retour à l'accueil" */
+.btn-custom {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #456c8e; /* Couleur grise */
+    border: solid 2px  ;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 20px; /* Espacement en dessous du bouton */
+}
+
+.btn-custom:hover {
+    background-color: #5a6268; /* Couleur grise plus foncée */
+}
+
+/* Other settings */
 h1 {
     font-size: 24px;
     color: #333333;

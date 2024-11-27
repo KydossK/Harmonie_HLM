@@ -3,22 +3,23 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-color: #f4f4f4;
+    background-color: #e6f0fa; /* Bleu clair pour un fond agréable */
     color: #333;
 }
 
+/* HEADER */
 .header {
-    background: #333;
+    background: #1e3a5f; /* Bleu foncé pour contraster avec le texte */
     color: #fff;
-    padding: 10px 0;
+    padding: 15px 0;
     text-align: center;
 }
-
 .header h1 {
     margin: 0;
     font-size: 2.5rem;
 }
 
+/* NAVIGATION */
 .nav {
     list-style: none;
     padding: 0;
@@ -30,44 +31,82 @@ body {
 
 .nav li {
     display: inline;
+    margin: 10px 15px;
 }
 
 .nav a {
     text-decoration: none;
-    color: #fff;
+    color: #fff; /* Texte blanc pour contraste */
     font-size: 1.2rem;
-    transition: color 0.3s ease;
+    background-color: #3f98f2; /* Bleu vif pour l'arrière-plan du bouton */
+    padding: 10px 20px; /* Ajout d'espacement pour un effet de bouton */
+    border-radius: 10px; /* Coins arrondis */
+    border: 2px solid #102847; /* Bordure bleu foncé pour définition */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
 
 .nav a:hover {
-    color: #ffd700;
+    background-color: #ffd700; /* Arrière-plan doré au survol */
+    color: #163358; /* Texte bleu foncé pour contraste au survol */
+    transform: scale(1.1); /* Agrandissement subtil pour interactivité */
 }
 
+.nav a:active {
+    transform: scale(0.95); /* Réduction légère pour un clic actif */
+}
+
+
+/* CONTENT */
 .content {
     padding: 20px;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 20px auto;
 }
 
-.intro, .infos {
-    background: #fff;
-    margin: 20px 0;
+.intro,
+.infos,
+.recruitment {
+    margin: 20px;
+    background: #ffffff;
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* Coins légèrement arrondis */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #efef04; /* Liseré bleu pour distinction visuelle */
 }
 
-.intro h2, .infos h2 {
-    color: #333;
+/* Titre commun pour toutes les sections */
+.intro h2,
+.infos h2,
+.recruitment h2 {
+    color: #1e3a5f; /* Harmonisation des titres en bleu foncé */
     margin-top: 0;
 }
 
+/* Spécifique à la section recrutement */
+.recruitment {
+    margin-bottom: 100px; /* Ajout facultatif pour séparer visuellement le bas de la page */
+}
+
+/* FOOTER */
 .footer {
-    background: #333;
+    background: #1e3a5f; /* Bleu foncé pour une apparence élégante */
     color: #fff;
     text-align: center;
     padding: 10px 0;
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+/* Ajout de transitions pour un design plus fluide */
+a,
+button {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Boutons ou liens actifs */
+button,
+.nav a:hover {
+    background-color: #1e90ff; /* Accent bleu lumineux au survol */
+    color: #fff; /* Texte blanc pour un bon contraste */
 }

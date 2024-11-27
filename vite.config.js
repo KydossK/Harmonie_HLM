@@ -9,6 +9,7 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/css/home.css',
                 'resources/css/login.css',
+                'resources/css/musiciens.css',
 
             ],
             refresh: true,
