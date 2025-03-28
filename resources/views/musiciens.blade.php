@@ -10,9 +10,13 @@
 </head>
 
 <body 
-    x-data="{ dark: false }"
-    x-init="dark = localStorage.getItem('theme') === 'dark'; if (dark) document.documentElement.classList.add('dark')"
-    class="bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100">
+    x-data="{ dark: localStorage.getItem('theme') === 'dark' }"
+    x-init="
+        if (dark) document.documentElement.classList.add('dark');
+        else document.documentElement.classList.remove('dark');
+    "
+    class="bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100"
+>
 
     {{-- ✅ Message de succès avec animation --}}
     @if (session('success'))
@@ -52,9 +56,14 @@
 
                     {{-- 🌗 Bouton mode sombre / clair --}}
                     <button
-                        @click="dark = !dark; dark ? document.documentElement.classList.add('dark') : document.documentElement.classList.remove('dark'); localStorage.setItem('theme', dark ? 'dark' : 'light')"
-                        class="text-sm bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-semibold py-1 px-3 rounded transition"
-                        x-text="dark ? '🌞 Mode clair' : '🌙 Mode sombre'">
+                    @click="
+                        dark = !dark;
+                        localStorage.setItem('theme', dark ? 'dark' : 'light');
+                        dark ? document.documentElement.classList.add('dark') : document.documentElement.classList.remove('dark');
+                    "
+                    class="text-sm bg-gray-700 hover:bg-gray-600 dark:bg-gray-200 dark:hover:bg-gray-300 text-gray-200 dark:text-gray-800 font-semibold py-1 px-3 rounded transition"
+
+                    x-text="dark ? '🌞 Mode clair' : '🌙 Mode sombre'">
                     </button>
                 </div>
             </div>
