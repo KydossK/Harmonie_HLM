@@ -1,91 +1,141 @@
-# Harmonie Municipale de Hellemes
+# 🎶 Harmonie Municipale de Hellemmes-Lille
 
-Site entrainement projet laravel 
+Site d'entraînement et projet Laravel dédié à la gestion d'une harmonie municipale, intégrant un espace privé réservé aux musiciens avec fonctionnalités avancées (authentification, gestion de photos privées, annonces internes, dark mode, etc.).
 
-mise en place d'une page réservée Users enregistrés (musiciens) 
-création de tables, migrations, utilisation de app/private/xx pour cacher les photos musiciens 
+---
 
-## Prérequis
+## ✨ Fonctionnalités actuelles
 
-- PHP 7.x
+- ✅ Page d'accueil publique simple et responsive.
+- ✅ Authentification sécurisée (inscription/login).
+- ✅ Page réservée aux musiciens connectés.
+- ✅ Affichage dynamique des musiciens par instrument (trombinoscope).
+- ✅ Photos privées protégées (stockées dans `storage/app/private/photos`).
+- ✅ Système d'annonces et alertes rapides administrables facilement.
+- ✅ Thème sombre (dark mode) activable via Alpine.js.
+
+---
+
+## 🛠️ Stack technique
+
+- Laravel 11.x
+- PHP 8.3.x
+- Tailwind CSS 3.x
+- Alpine.js 3.x
 - MariaDB 15.x
-- Apache 2.x
-- Npm x.x
+- Vite.js
 
-## Installation
+---
 
-```
+## 📋 Prérequis
+
+- PHP 8.3.x (ou supérieur)
+- MariaDB 15.x (ou MySQL compatible)
+- Composer
+- NPM
+- Git
+
+---
+
+## 🚀 Installation
+
+1\. Cloner le dépôt GitHub :
+
+```bash
 git clone https://github.com/editeur/projet.git
 cd projet
-# adaptez les paramètres
-echo "DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/db_name" > .env.local
+```
+
+2\. Installer les dépendances :
+
+```bash
 composer install
-php bin/console doctrine:database:create
-php bin/console doctrine:migrations:migrate
-php bin/console doctrine:fixtures:load
+npm install
 ```
 
-Pour charger les données nécessaires au bon fonctionnement :
+3\. Configurer l'environnement :
 
-```
-php bin/console doctrine:fixtures:load --group=prod
-```
-
-## Utilisation
-
-Le document root se trouve dans le dossier `public`.
-
-Depuis la racine du projet, lancez un serveur web :
-
-```
-symfony serve
+```bash
+cp .env.example .env
+php artisan key:generate
 ```
 
-Puis ouvrez le lien [http://localhost:8000](http://localhost:8000).
+Éditer `.env` pour configurer la base de données :
 
-- /admin : back office
-- /login : connexion
-- /register : inscription
-- ...
-
-## Tests
-
-Pour lancer tous les tests :
-
-```
-php bin/phpunit
+```dotenv
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=harmonie
+DB_USERNAME=votre_user
+DB_PASSWORD=votre_password
 ```
 
-Pour lancer les tests liés au front-office :
+4\. Lancer les migrations et charger les données initiales :
 
-```
-php bin/phpunit tests/Front
-```
-
-Pour lancer les tests liés au back-office :
-
-```
-php bin/phpunit tests/Back
+```bash
+php artisan migrate --seed
 ```
 
-## Bugs
+---
 
-Bugs connus :
+## ▶️ Démarrage de l'application
 
-## Recommandations
+Depuis la racine du projet, lancez les commandes :
 
-Fonctionnalités qui devraient être implémentées :
+```bash
+npm run dev
+php artisan serve
+```
 
-a revoir -> systéme liaison photos / musiciens trombinoscope 
+Accédez au site via : [http://localhost:8000](http://localhost:8000)
 
+- Accueil visiteurs : `/`
+- Connexion : `/login`
+- Inscription : `/register`
+- Espace musiciens : `/musiciens`
 
-Chat ouvert pour les musiciens !!
+---
 
+## ✅ Tests
 
-## Mentions légales
+Pour lancer tous les tests automatisés :
+
+```bash
+php artisan test
+```
+
+---
+
+## 🐛 Bugs et améliorations
+
+### 🐞 Bugs connus
+
+- Aucun bug connu actuellement.
+
+### 💡 Suggestions d'amélioration
+
+- Gestion dynamique des annonces via interface d'administration.
+- Ajout d'un calendrier interactif.
+- Intégration d'un système d'échange de partitions.
+- Liste dynamique des inscrits aux prochains défilés.
+- Chat interne pour les musiciens.
+
+---
+
+## 📜 Mentions légales
 
 Tout le code de ce repository est sous licence [GPL v3.0](https://www.gnu.org/licenses/gpl-3.0.html).
 
-## Contact
+---
 
-Pour toute demande d'information, contactez foo.bar@example.com
+## 📬 Contact
+
+Pour toute question ou proposition, contactez :
+
+[foo.bar@example.com](mailto:foo.bar@example.com)
+
+---
+
+
+
