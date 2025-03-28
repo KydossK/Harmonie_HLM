@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Carbon\Carbon; // Importez Carbon pour les manipulations de dates
 use App\Models\Musicien; // Importez le modèle Musicien
 use App\Models\Partition; //Importation des partitions partagées 
@@ -11,8 +12,17 @@ class MusiciensController extends Controller
 {
     public function index()
 {
-    // Charger les musiciens avec leurs photos et les regrouper par instrument
-    $musiciens = Musicien::with('photos')->get()->groupBy('libelle_instrument');
+  // Charger les musiciens groupés par instrument
+$groupes = Musicien::with('photos')->get()->groupBy('libelle_instrument');
+
+// Mélanger l’ordre des pupitres tout en conservant les noms
+$musiciens = collect($groupes->keys())
+    ->shuffle()
+    ->mapWithKeys(function ($key) use ($groupes) {
+        return [$key => $groupes[$key]];
+    });
+
+    
 
     // Calcul du prochain anniversaire
     $today = Carbon::today(); // Date d'aujourd'hui

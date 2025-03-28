@@ -2,9 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Emoji Musicien ivoire -darkmode- */
-@layer utilities {
-    .dark .emoji-music {
-        filter: brightness(3) saturate(0.5);
-    }
+/* 🎶 Emoji ivoire visible en dark mode */
+.dark .emoji-music {
+    filter: brightness(3.8) saturate(1.2);
 }

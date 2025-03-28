@@ -69,48 +69,67 @@
             </div>
 
 {{-- 📢 Annonces et Alertes rapides --}}
-<section class="max-w-4xl mx-auto my-8 p-6 bg-red-50 dark:bg-yellow-800 dark:text-yellow-100 rounded-lg shadow">
+<section class="relative max-w-4xl mx-auto my-8 p-6 pt-24 bg-red-50 dark:bg-yellow-800 dark:text-yellow-100 rounded-lg shadow">
 
-    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
-        📢 Annonces et Alertes rapides
-    </h2>
-
-    {{-- Zone d'affichage des annonces (modifiable via admin) --}}
-    <div class="space-y-4">
-
-        {{-- Annonce 1 --}}
-        <div class="p-4 bg-white dark:bg-gray-800 rounded shadow-sm">
-            <h3 class="text-lg font-semibold dark:text-white">Prochain Concert <span class="emoji-music inline-block">🎶</span> </h3>
-            <p class="text-gray-700 dark:text-gray-200">Samedi 15 mai à 20h00 à la salle des fêtes de Hellemmes-Lille.</p>
-        </div>
-
-        {{-- Annonce 2 --}}
-        <div class="p-4 bg-white dark:bg-gray-800 rounded shadow-sm">
-            <h3 class="text-lg font-semibold dark:text-white">Répétition générale 📅</h3>
-            <p class="text-gray-700 dark:text-gray-200">Vendredi 14 mai à 19h30 précises au local habituel.</p>
-        </div>
-
-        {{-- Annonce 3 --}}
-        <div class="p-4 bg-white dark:bg-gray-800 rounded shadow-sm">
-            <h3 class="text-lg font-semibold dark:text-white">Tenue Concert 👔</h3>
-            <p class="text-gray-700 dark:text-gray-200">Chemise blanche, pantalon noir, chaussures noires.</p>
-        </div>
-
-        {{-- Informations dverses / Alertes --}}
-        <div class="p-4 bg-white dark:bg-gray-800 rounded shadow-sm">
-            <h3 class="text-lg font-semibold dark:text-white">⚠️ Information importante :</h3>
-            <p class="text-gray-700 dark:text-gray-200">La répétition du 7 mai est annulée exceptionnellement.</p>
-        </div>
-
+    {{-- ✅ Frise répétée en haut --}}
+    <div class="absolute top-0 left-0 w-full h-16 bg-repeat-x bg-top bg-contain z-0"
+     style="background-image: url('{{ asset('Img/frise-horizontale.png') }}');">
     </div>
 
-    {{-- Bouton pour gérer/modifier les annonces (option admin) --}}
-    <div class="mt-4 text-right">
-        <button class="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded">
-            Modifier les annonces
-        </button>
+
+    {{-- ✅ Contenu principal (au-dessus de la frise) --}}
+    <div class="relative z-10">
+        <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+            📢 Annonces et Alertes rapides
+        </h2>
+
+        {{-- Zone d'affichage des annonces (modifiable via admin) --}}
+        <div class="space-y-4">
+
+            {{-- Annonce 1 --}}
+            <div class="p-4 bg-white dark:bg-gray-800 rounded shadow-sm">
+                <h3 class="text-lg font-semibold dark:text-white">Prochain Concert 
+                    <span class="emoji-music inline-block">🎶</span></h3>
+                <p class="text-gray-700 dark:text-gray-200">
+                    Samedi 15 mai à 20h00 à la salle des fêtes de Hellemmes-Lille.
+                </p>
+            </div>
+
+            {{-- Annonce 2 --}}
+            <div class="p-4 bg-white dark:bg-gray-800 rounded shadow-sm">
+                <h3 class="text-lg font-semibold dark:text-white">Répétition générale 📅</h3>
+                <p class="text-gray-700 dark:text-gray-200">
+                    Vendredi 14 mai à 19h30 précises au local habituel.
+                </p>
+            </div>
+
+            {{-- Annonce 3 --}}
+            <div class="p-4 bg-white dark:bg-gray-800 rounded shadow-sm">
+                <h3 class="text-lg font-semibold dark:text-white">Tenue Concert 👔</h3>
+                <p class="text-gray-700 dark:text-gray-200">
+                    Chemise blanche, pantalon noir, chaussures noires.
+                </p>
+            </div>
+
+            {{-- Information importante --}}
+            <div class="p-4 bg-white dark:bg-gray-800 rounded shadow-sm">
+                <h3 class="text-lg font-semibold dark:text-white">⚠️ Information importante :</h3>
+                <p class="text-gray-700 dark:text-gray-200">
+                    La répétition du 7 mai est annulée exceptionnellement.
+                </p>
+            </div>
+        </div>
+
+        {{-- Bouton admin --}}
+        <div class="mt-4 text-right">
+            <button class="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded">
+                Modifier les annonces
+            </button>
+        </div>
     </div>
 </section>
+
+
 
 
 {{-- 🎼 Espace d'échange de partitions et 📝 Liste inscrits aux défilés --}}
@@ -118,7 +137,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
         {{-- 🎼 Espace d'échange de partitions (à gauche) --}}
-        <div class="bg-blue-100 dark:bg-blue-800 dark:text-blue-100 p-6 rounded-lg shadow">
+        <div class="bg-blue-100 dark:bg-yellow-800 dark:text-blue-100 p-6 rounded-lg shadow">
             <h2 class="text-xl font-semibold mb-4">🎼 Espace d'échange de partitions</h2>
             <p class="text-sm">
                 Retrouvez ici des dernières partitions partagées par les musiciens.
