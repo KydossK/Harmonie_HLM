@@ -34,21 +34,58 @@
         </nav>
     </header>
 
+
+
     <main class="px-6 py-10 max-w-4xl mx-auto">
         <section class="mb-12">
-            <h2 class="text-2xl font-semibold mb-4">À propos de l'Harmonie Municipale</h2>
-            <p class="text-lg">L'harmonie municipale regroupe des passionnés de musique qui se retrouvent pour partager leur art. Découvrez nos événements, nos projets et bien plus encore !</p>
+            <div class="text-center max-w-4xl mx-auto">
+                <h2 class="text-2xl font-semibold mb-4">À propos de l'Harmonie Municipale</h2>
+        
+                <p class="text-lg leading-relaxed">
+                    L'Harmonie Municipale d'Hellemmes est une institution musicale emblématique de notre ville, célébrant en 2008 son 
+                    <strong>150ᵉ anniversaire</strong>.
+                </p>
+        
+                <br>
+        
+                <p class="text-lg leading-relaxed">
+                    Fondée en <strong>1858</strong>, l'harmonie a traversé les époques, reflétant l'évolution culturelle et sociale d'Hellemmes.
+                </p>
+        
+                <p class="text-lg leading-relaxed">
+                    Depuis ses débuts, elle s'est imposée comme un acteur majeur de la vie musicale locale.
+                </p>
+        
+                <br>
+        
+                <p class="text-lg leading-relaxed">
+                    Nos missions incluent la transmission musicale, l'animation culturelle et l'excellence artistique. Nous offrons aux jeunes et aux adultes l'opportunité d'apprendre et de pratiquer la musique en ensemble. L'harmonie participe activement aux événements locaux et œuvre pour le développement de la culture musicale à Hellemmes et dans la région.
+                </p>
+            </div>
         </section>
-
-        <section class="mb-12">
-            <h2 class="text-2xl font-semibold mb-4">Informations</h2>
+        
+    
+        <section class="mb-12 bg-blue-50 dark:bg-blue-900 dark:text-blue-100 p-6 rounded-xl shadow-md">
+            <h2 class="text-2xl font-semibold mb-4">📅 Informations</h2>
             <ul class="list-disc list-inside text-lg space-y-1">
-                <li>Prochain concert : 15 décembre 2024</li>
-                <li>Lieu : Salle des fêtes</li>
-                <li>Heure : 20h00</li>
+                <li><strong>Prochain concert :</strong> 15 décembre 2024</li>
+                <li><strong>Lieu :</strong> Salle des fêtes d’Hellemmes</li>
+                <li><strong>Heure :</strong> 20h00</li>
             </ul>
         </section>
-
+        
+        <section class="mb-12 bg-yellow-50 dark:bg-yellow-800 dark:text-yellow-100 p-6 rounded-xl shadow-md">
+            <h2 class="text-2xl font-semibold mb-4">🎵 Une aventure musicale et humaine</h2>
+            <p class="text-lg leading-relaxed">
+                L’Harmonie Municipale d’Hellemmes est bien plus qu’un simple orchestre. C’est un lieu de rencontre entre passionnés, un creuset de liens intergénérationnels et un symbole de la vie culturelle locale.
+            </p>
+            <br>
+            <p class="text-lg leading-relaxed">
+                Rejoindre l’harmonie, c’est participer à un projet collectif, s’investir dans des moments musicaux forts et contribuer à la richesse culturelle de notre ville.
+            </p>
+        </section>
+        
+    
         <section class="bg-gray-100 p-6 rounded-xl shadow-md">
             <h2 class="text-2xl font-semibold mb-4 text-center">L'Harmonie Recrute</h2>
             <p class="text-lg text-center">
@@ -59,6 +96,8 @@
             </p>
         </section>
     </main>
+    
+
 
     <footer class="bg-gray-900 text-white text-center py-6 mt-10">
         <p>&copy; 2024 Harmonie Municipale de Hellemmes. Tous droits réservés. Pierre Plé</p>
