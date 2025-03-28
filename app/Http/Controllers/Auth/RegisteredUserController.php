@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rules;
+use Illuminate\Auth\Events\Registered;
 
 class RegisteredUserController extends Controller
 {
@@ -19,28 +21,41 @@ class RegisteredUserController extends Controller
     }
 
     /**
-     * Enregistre un nouvel utilisateur.
-     */
-    public function store(Request $request)
+     * Enregistre un nouvel utilisateur.*/
+    public function store(Request $request): RedirectResponse
     {
-        // Validation des champs du formulaire
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|confirmed|min:6',
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'pupitre' => 'required|string|in:Flûte,Hautbois,Clarinette,Saxophone,Cor,Trompette,Trombone,Tuba,Percussions,Autre', // Validation du pupitre
+            'photo' => ['nullable', 'image', 'max:2048'], // max ~2Mo
         ]);
-
-        // Création de l'utilisateur
+    
+        // Si l'utilisateur a envoyé une photo, on la stocke
+        $photoPath = null;
+        if ($request->hasFile('photo')) {
+            $photoPath = $request->file('photo')->store('photos', 'private');
+        }
+    
+        // Création de l'utilisateur avec le pupitre choisi
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'pupitre' => $request->pupitre, // On enregistre le pupitre choisi
         ]);
-
-        // Connexion automatique après l'inscription
+    
+        // Si une photo a été envoyée, on crée l'entrée liée dans la table photos
+        if ($photoPath) {
+            $user->photos()->create(['path' => $photoPath]);
+        }
+    
+        // Connexion automatique après inscription
+        event(new Registered($user));
         Auth::login($user);
-
-        // Redirection
-        return redirect('/musiciens')->with('success', 'Votre inscription est validée. Bienvenue dans l\'harmonie !');
+    
+        // Redirection vers la page des musiciens après l'inscription
+        return redirect()->route('musiciens')->with('success', 'Votre inscription a été validée ! Bienvenue !');
     }
 }

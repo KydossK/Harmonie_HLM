@@ -20,6 +20,7 @@ class Musicien extends Model
         'libelle_instrument',
         'role',
         'mot_de_passe',
+        'pupitre',
     ];
 
     // Cast automatique de date_anniversaire en Carbon

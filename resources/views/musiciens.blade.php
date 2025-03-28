@@ -140,7 +140,7 @@
         <div class="bg-blue-100 dark:bg-yellow-800 dark:text-blue-100 p-6 rounded-lg shadow">
             <h2 class="text-xl font-semibold mb-4">🎼 Espace d'échange de partitions</h2>
             <p class="text-sm">
-                Retrouvez ici des dernières partitions partagées par les musiciens.
+                Retrouvez ici les dernières partitions partagées par les musiciens. Partitions Uniquement. Merci 
             </p>
 
             <ul class="mt-3 space-y-2">
@@ -205,6 +205,9 @@
             <h2 class="text-xl font-semibold mb-4">📝 Inscrits aux prochains défilés</h2>
             <p class="text-sm">
                 Voici la liste actualisée des musiciens inscrits aux prochains défilés :
+                // ICI LISTE AUTOMATIQUE DES DATES DEFILES ET SERVICES //
+                PCHAIN DEFILE LE XX/XX // 12 INSCRITS (en gros)
+                en dessous en plus petit  les dates (auto), pas le nb d'inscrits 
             </p>
 
             <ul class="mt-3 list-disc list-inside space-y-1 text-sm">
@@ -242,42 +245,41 @@
     </section>
 
 
-                    {{-- Grille des musiciens--}}
-    <section class="max-w-6xl mx-auto px-4 py-8">
-        <h1 class="text-3xl font-bold text-center mb-10">Liste des Musiciens</h1>
-    
-        @foreach ($musiciens as $instrument => $musiciensGroupe)
-            <div class="mb-12">
-                <h2 class="text-2xl font-semibold text-center mb-6">{{ $instrument }}</h2>
-    
-                <div class="max-w-3xl mx-auto">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                        @foreach ($musiciensGroupe as $musicien)
-                            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-                                @if ($musicien->photos->isNotEmpty())
-                                    <img src="{{ route('photos.private', basename($musicien->photos->first()->path)) }}"
-                                        alt="{{ $musicien->prenom }} {{ $musicien->nom }}" class="w-full h-32 object-cover">
-                                @else
-                                    <img src="{{ asset('images/default.jpg') }}" alt="Photo par défaut"
-                                        class="w-full h-32 object-cover">
-                                @endif
-                                <div class="p-4">
-                                    <h5 class="text-lg font-semibold dark:text-white">
-                                        {{ $musicien->prenom }} {{ $musicien->nom }}
-                                    </h5>
-                                    <p class="text-sm text-gray-600 dark:text-gray-300">
-                                        Instrument : {{ $musicien->libelle_instrument }}
-                                    </p>
-                                </div>
+{{-- 🎼 Grille des musiciens --}}
+<section class="max-w-6xl mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold text-center mb-10">Liste des Musiciens</h1>
+
+    @foreach ($musiciens as $pupitre => $musiciens)
+        <div class="mb-12">
+            {{-- 🏷️ Nom du pupitre --}}
+            <h2 class="text-2xl font-semibold text-center mb-6">{{ $pupitre }}</h2>
+
+            {{-- 🧱 Grille des musiciens du pupitre --}}
+            <div class="max-w-3xl mx-auto">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    @foreach ($musiciens as $musicien)
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                            @if ($musicien->photos->isNotEmpty())
+                                <img src="{{ route('photos.private', basename($musicien->photos->first()->path)) }}"
+                                    alt="{{ $musicien->prenom }} {{ $musicien->nom }}"
+                                    class="w-full h-32 object-cover">
+                            @else
+                                <img src="{{ asset('images/default.jpg') }}" alt="Photo par défaut"
+                                    class="w-full h-32 object-cover">
+                            @endif
+                            <div class="p-4">
+                                <h5 class="text-lg font-semibold dark:text-white">
+                                    {{ $musicien->prenom }} {{ $musicien->nom }}
+                                </h5>
                             </div>
-                        @endforeach
-                    </div>
+                        </div>
+                    @endforeach
                 </div>
-    
-                <hr class="my-10 border-gray-300 dark:border-gray-700">
             </div>
-        @endforeach
-    </section>
+        </div>
+    @endforeach
+</section>
+
     
 
     @if (session('success'))
