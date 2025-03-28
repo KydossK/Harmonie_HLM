@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MusiciensController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\PartitionController;
 
 
 //Routes Home Page
@@ -59,3 +60,19 @@ Route::get('/photos/{filename}', function ($filename) {
 //Route REGISTER
 Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
 Route::post('/register', [RegisteredUserController::class, 'store']);
+
+
+//Route Partitions (Upload Partitions)
+Route::middleware(['auth'])->group(function () {
+    Route::get('/partitions', [PartitionController::class, 'index'])->name('partitions.index');
+    Route::post('/partitions', [PartitionController::class, 'store'])->name('partitions.store');
+});
+
+//Route pour  afficher et Down les partitions
+Route::middleware(['auth'])->group(function () {
+    Route::get('/partitions', [PartitionController::class, 'index'])->name('partitions.index');
+    Route::post('/partitions', [PartitionController::class, 'store'])->name('partitions.store');
+
+    // Ajoute précisément cette route pour télécharger les partitions :
+    Route::get('/partitions/telecharger/{id}', [PartitionController::class, 'telecharger'])->name('partition.telecharger');
+});

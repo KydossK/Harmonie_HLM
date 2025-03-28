@@ -69,25 +69,25 @@
     {{-- Zone d'affichage des annonces (modifiable via admin) --}}
     <div class="space-y-4">
 
-        {{-- Annonce exemple 1 --}}
+        {{-- Annonce 1 --}}
         <div class="p-4 bg-white dark:bg-gray-800 rounded shadow-sm">
             <h3 class="text-lg font-semibold dark:text-white">Prochain Concert <span class="emoji-music inline-block">🎶</span> </h3>
             <p class="text-gray-700 dark:text-gray-200">Samedi 15 mai à 20h00 à la salle des fêtes de Hellemmes-Lille.</p>
         </div>
 
-        {{-- Annonce exemple 2 --}}
+        {{-- Annonce 2 --}}
         <div class="p-4 bg-white dark:bg-gray-800 rounded shadow-sm">
             <h3 class="text-lg font-semibold dark:text-white">Répétition générale 📅</h3>
             <p class="text-gray-700 dark:text-gray-200">Vendredi 14 mai à 19h30 précises au local habituel.</p>
         </div>
 
-        {{-- Annonce exemple 3 --}}
+        {{-- Annonce 3 --}}
         <div class="p-4 bg-white dark:bg-gray-800 rounded shadow-sm">
             <h3 class="text-lg font-semibold dark:text-white">Tenue Concert 👔</h3>
             <p class="text-gray-700 dark:text-gray-200">Chemise blanche, pantalon noir, chaussures noires.</p>
         </div>
 
-        {{-- Informations diverses / Alertes --}}
+        {{-- Informations dverses / Alertes --}}
         <div class="p-4 bg-white dark:bg-gray-800 rounded shadow-sm">
             <h3 class="text-lg font-semibold dark:text-white">⚠️ Information importante :</h3>
             <p class="text-gray-700 dark:text-gray-200">La répétition du 7 mai est annulée exceptionnellement.</p>
@@ -103,9 +103,103 @@
     </div>
 </section>
 
+
+{{-- 🎼 Espace d'échange de partitions et 📝 Liste inscrits aux défilés --}}
+<section class="max-w-5xl mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        {{-- 🎼 Espace d'échange de partitions (à gauche) --}}
+        <div class="bg-blue-100 dark:bg-blue-800 dark:text-blue-100 p-6 rounded-lg shadow">
+            <h2 class="text-xl font-semibold mb-4">🎼 Espace d'échange de partitions</h2>
+            <p class="text-sm">
+                Retrouvez ici des dernières partitions partagées par les musiciens.
+            </p>
+
+            <ul class="mt-3 space-y-2">
+                @foreach($partitions as $partition)
+                    <li>🎶 <a href="{{ route('partition.telecharger', $partition->id) }}" class="underline">
+                        {{ $partition->titre }}
+                    </a></li>
+                @endforeach
             
+                @if($partitions->isEmpty())
+                    <li class="italic text-gray-600 dark:text-gray-300">Aucune partition partagée pour le moment.</li>
+                @endif
+            </ul>
+            
+
+            <div class="mt-4 text-right">
+                <button class="bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded">
+                    Voir toutes les partitions
+                </button>
+            </div>
+            {{-- 📤 Formulaire d'upload de partitions --}}
+<div class="mt-6 bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow">
+    <h3 class="text-lg font-semibold dark:text-white mb-2">Ajouter une nouvelle partition :</h3>
+
+    {{-- Afficher message d'erreur --}}
+    @if ($errors->any())
+        <div class="mb-4 text-sm text-red-600 dark:text-red-400">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>⚠️ {{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    {{-- Formulaire d'envoi --}}
+    <form action="{{ route('partitions.store') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <div class="mb-3">
+            <input type="text" name="titre" placeholder="Titre de la partition" required
+                class="w-full rounded border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 dark:text-white shadow-sm p-2">
         </div>
 
+        <div class="mb-3">
+            <input type="file" name="partition" required accept=".pdf,.jpg,.jpeg,.png"
+                class="w-full rounded border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 dark:text-white shadow-sm p-2">
+            <small class="text-xs text-gray-500 dark:text-gray-400">Formats acceptés : PDF, JPG, PNG (max. 3 Mo)</small>
+        </div>
+
+        <button type="submit"
+            class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
+            📤 Envoyer la partition
+        </button>
+    </form>
+    </div>
+</div>
+
+
+
+        {{-- 📝 Liste dynamique des inscrits aux prochains défilés (à droite) --}}
+        <div class="bg-yellow-100 dark:bg-yellow-800 dark:text-yellow-100 p-6 rounded-lg shadow">
+            <h2 class="text-xl font-semibold mb-4">📝 Inscrits aux prochains défilés</h2>
+            <p class="text-sm">
+                Voici la liste actualisée des musiciens inscrits aux prochains défilés :
+            </p>
+
+            <ul class="mt-3 list-disc list-inside space-y-1 text-sm">
+                <li>🎺 Pierre Dupont (Trompette)</li>
+                <li>🎷 Sophie Martin (Saxophone Alto)</li>
+                <li>🥁 Jean Leroy (Percussions)</li>
+                <li>🎶 <em>et 12 autres inscrits...</em></li>
+            </ul>
+
+            <div class="mt-4 text-right">
+                <button class="bg-yellow-500 hover:bg-yellow-600 text-white py-1 px-3 rounded">
+                    Voir toute la liste
+                </button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+                {{-- Prochain anniversaire --}}
+        </div>
         <div class="bg-yellow-300 dark:bg-yellow-800 dark:text-yellow-100 p-6 rounded-lg shadow">
             <p class="text-lg">
                 Le prochain anniversaire dans l'harmonie est :<br>
@@ -119,6 +213,8 @@
         </div>
     </section>
 
+
+                    {{-- Grille des musiciens--}}
     <section class="max-w-6xl mx-auto px-4 py-8">
         <h1 class="text-3xl font-bold text-center mb-10">Liste des Musiciens</h1>
     
@@ -126,7 +222,6 @@
             <div class="mb-12">
                 <h2 class="text-2xl font-semibold text-center mb-6">{{ $instrument }}</h2>
     
-                {{-- Grille des musiciens--}}
                 <div class="max-w-3xl mx-auto">
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                         @foreach ($musiciensGroupe as $musicien)
