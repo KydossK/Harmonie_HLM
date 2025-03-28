@@ -24,7 +24,9 @@
             </ul>
         </nav>
     </header>
-    
+
+    <!-- Ceci est un test -->
+    <h1 class="text-4xl text-blue-500 text-center font-bold mt-10">Test Tailwind OK !</h1>
 
 
     <main class="content">
