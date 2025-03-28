@@ -78,6 +78,10 @@ Fonctionnalités qui devraient être implémentées :
 
 a revoir -> systéme liaison photos / musiciens trombinoscope 
 
+
+Chat ouvert pour les musiciens !!
+
+
 ## Mentions légales
 
 Tout le code de ce repository est sous licence [GPL v3.0](https://www.gnu.org/licenses/gpl-3.0.html).

@@ -4,20 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Harmonie Municipale</title>
+    <link rel="icon" href="{{ asset('Img/blason-no-bg.jpeg') }}" type="image/jpeg">
     @vite(['resources/css/home.css', 'resources/js/home.js'])
 </head>
 
 
 <body>
+
+
     <header class="header">
+        <div class="header-image-container">
+            <img src="{{ asset('Img/mairie-hellemmes.jpg') }}" alt="Image Header" class="header-img">
+        </div>
         <h1>Harmonie Municipale <br> de Hellemmes-Lille</h1>
         <nav>
             <ul class="nav">
-                <li><a href="/">Accueil Visiteurs</a></li>
-                <li><a href="/musiciens">Page Musiciens</a></li>
+                <li><a href="/"><img src="Img/ico/choir_1.png" alt="Accueil"><span>Accueil Visiteurs</span></a></li>
+                <li><a href="/musiciens"><img src="Img/ico/freedom_3.png" alt="Musiciens"><span>Page Musiciens</span></a></li>
             </ul>
         </nav>
     </header>
+    
 
 
     <main class="content">

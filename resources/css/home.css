@@ -3,51 +3,89 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-color: #e6f0fa; /* Bleu clair pour un fond agréable */
+    background-color: #e6f0fa;
     color: #333;
 }
 
 /* HEADER */
 .header {
-    background: #1e3a5f; /* Bleu foncé pour contraster avec le texte */
     color: #fff;
     padding: 15px 0;
     text-align: center;
+    position: relative;
 }
+
 .header h1 {
+    font-size: 3rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     margin: 0;
-    font-size: 2.5rem;
+    z-index: 2;
+    transition: all 0.3s ease;
 }
+
+/* Conteneur de l'image */
+.header-image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Image */
+.header-img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+
+
+
+
+
 
 /* NAVIGATION */
 .nav {
     list-style: none;
     padding: 0;
-    margin: 10px 0;
+    margin: 20px 0;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 20px;
+    flex-wrap: wrap; /* Permet à la navigation de s'adapter sur plusieurs lignes */
+    background-color: #1e3a5f; /* Fond bleu foncé pour une touche élégante */
+    border-radius: 12px; /* Coins arrondis pour un effet visuel doux */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre légère pour donner du relief */
+    padding: 10px 20px; /* Ajout d'un espace interne */
 }
 
 .nav li {
-    display: inline;
-    margin: 10px 15px;
+    margin: 0;
 }
 
 .nav a {
+    display: flex; /* Pour aligner l'icône et le texte */
+    align-items: center;
     text-decoration: none;
-    color: #fff; /* Texte blanc pour contraste */
-    font-size: 1.2rem;
-    background-color: #3f98f2; /* Bleu vif pour l'arrière-plan du bouton */
-    padding: 10px 20px; /* Ajout d'espacement pour un effet de bouton */
-    border-radius: 10px; /* Coins arrondis */
-    border: 2px solid #102847; /* Bordure bleu foncé pour définition */
+    color: #fff; /* Texte blanc */
+    font-size: 1.2rem; /* Taille du texte */
+    font-weight: bold; /* Mise en valeur des liens */
+    background-color: #3f98f2; /* Bleu vif */
+    padding: 10px 20px; /* Espacement interne pour un effet de bouton */
+    border-radius: 50px; /* Style de bouton arrondi */
+    border: 2px solid #102847; /* Bordure bleue sombre */
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    gap: 10px; /* Espace entre l'icône et le texte */
 }
 
 .nav a:hover {
     background-color: #ffd700; /* Arrière-plan doré au survol */
-    color: #163358; /* Texte bleu foncé pour contraste au survol */
+    color: #1e3a5f; /* Texte bleu foncé */
     transform: scale(1.1); /* Agrandissement subtil pour interactivité */
 }
 
@@ -55,11 +93,40 @@ body {
     transform: scale(0.95); /* Réduction légère pour un clic actif */
 }
 
+/* Icônes dans les liens */
+.nav a i {
+    display: block;
+    width: 24px; /* Largeur de l'icône */
+    height: 24px; /* Hauteur de l'icône */
+    background-size: cover; /* S'assure que l'image remplit l'espace */
+    background-position: center; /* Centre l'image */
+}
+
+.nav a img {
+    width: 50px; /* Largeur de l'icône */
+    height: 50px; /* Hauteur de l'icône */
+    object-fit: contain; /* Préserve les proportions de l'image */
+    display: inline-block; /* Assure un bon alignement avec le texte */
+    vertical-align: middle; /* Alignement vertical au centre */
+}
+
+/* Texte dans les liens */
+.nav a span {
+    margin-left: 10px; /* Espace entre l'image et le texte */
+}
+
+
+
+
+
+
+
+
 
 /* CONTENT */
 .content {
     padding: 20px;
-    max-width: 800px;
+    max-width: 90%; /* Utilisation de la largeur disponible sur mobile */
     margin: 20px auto;
 }
 
@@ -69,27 +136,25 @@ body {
     margin: 20px;
     background: #ffffff;
     padding: 20px;
-    border-radius: 8px; /* Coins légèrement arrondis */
+    border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    border-left: 5px solid #efef04; /* Liseré bleu pour distinction visuelle */
+    border-left: 5px solid #efef04;
 }
 
-/* Titre commun pour toutes les sections */
 .intro h2,
 .infos h2,
 .recruitment h2 {
-    color: #1e3a5f; /* Harmonisation des titres en bleu foncé */
+    color: #1e3a5f;
     margin-top: 0;
 }
 
-/* Spécifique à la section recrutement */
 .recruitment {
-    margin-bottom: 100px; /* Ajout facultatif pour séparer visuellement le bas de la page */
+    margin-bottom: 100px;
 }
 
 /* FOOTER */
 .footer {
-    background: #1e3a5f; /* Bleu foncé pour une apparence élégante */
+    background: #1e3a5f;
     color: #fff;
     text-align: center;
     padding: 10px 0;
@@ -98,15 +163,88 @@ body {
     width: 100%;
 }
 
-/* Ajout de transitions pour un design plus fluide */
+/* TRANSITIONS */
 a,
 button {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Boutons ou liens actifs */
 button,
 .nav a:hover {
-    background-color: #1e90ff; /* Accent bleu lumineux au survol */
-    color: #fff; /* Texte blanc pour un bon contraste */
+    background-color: #1e90ff;
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+/* RESPONSIVE STYLES */
+@media (max-width: 750px) {
+    .header h1 {
+        font-size: 2rem;
+        top: 45%;
+    }
+
+    .header-image-container {
+        min-height: 200px;
+    }
+
+    .nav {
+        flex-direction: column; /* Les éléments sont empilés verticalement */
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .nav a {
+        font-size: 1rem; /* Taille du texte réduite */
+        padding: 8px 15px;
+    }
+
+    .nav a i {
+        font-size: 1.2rem; /* Taille des icônes réduite */
+    }
+
+    .nav a img {
+        width: 40px; /* Taille réduite pour les petits écrans */
+        height: 40px;
+    }
+
+    .content {
+        padding: 10px;
+        max-width: 95%;
+    }
+
+    .intro,
+    .infos,
+    .recruitment {
+        margin: 10px 0;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 500px) {
+    .header h1 {
+        font-size: 1.5rem;
+        top: 40%;
+    }
+
+    .nav {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .nav a {
+        font-size: 0.9rem;
+        padding: 8px 10px;
+    }
+
+    .footer {
+        padding: 8px 0;
+    }
 }

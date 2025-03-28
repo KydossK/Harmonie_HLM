@@ -1,56 +1,58 @@
-/* Global Styles */
+/* Mise à jour des styles globaux */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4; /* Couleur de fond douce */
+    background-color: #eaf2fb; /* Couleur de fond douce et cohérente */
     margin: 0;
     padding: 0;
 }
+
 /* Section principale */
 section {
-    padding: 50px 20px;
+    padding: 20px 20px;
 }
-
-
-
 
 /* Conteneur principal */
 .musiciens-container-info {
-    background-color: #f4f4f9;
+    background-color: #ffffff;
     padding: 20px;
     margin: 20px auto;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 800px;
+    border-left: 8px solid #ffc107; /* Bordure colorée sur le côté gauche */
 }
 
 /* Titre principal */
-.musiciens-container h2 {
-    font-size: 24px;
+.musiciens-container-info h2 {
+    font-size: 22px;
     margin-bottom: 15px;
     color: #333333;
-    text-align: center;
+    font-weight: bold;
 }
 
 /* Liste des informations */
 .musiciens-info ul {
     list-style-type: none;
     padding: 0;
-    margin-top: 15px;
+    margin: 10px 0;
 }
+
 .musiciens-info li {
-padding: 5px;
-font-size: 18px;
-color: #555555;
+    padding: 8px;
+    font-size: 18px;
+    color: #555555;
+    margin-bottom: 5px;
 }
 
 /* Encart anniversaire */
 .musiciens-anniversaire {
     margin-top: 20px;
     padding: 15px;
-    background-color: #ffffff;
-    border: 1px solid #cccccc;
+    background-color: #f9f9ff;
     border-radius: 5px;
     text-align: center;
+    border-left: 8px solid #007bff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .musiciens-anniversaire p {
@@ -58,86 +60,78 @@ color: #555555;
     color: #555555;
 }
 
-
-
-
-
-
 /* Titre principal */
 h1.trombi {
-    font-size: 36px;
+    font-size: 28px;
     font-weight: bold;
     margin-bottom: 30px;
     color: #333333;
+    text-align: center;
 }
+
 /* Conteneur des cartes */
 .container.trombi {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly; /* Réduit les espaces inutiles */
-    gap: 10px; /* Espacement entre les cartes */
-    padding: 0 10px; /* Limite l'espace autour des cartes */
+    justify-content: center; /* Aligne les cartes au centre */
+    gap: 15px; /* Augmente l'espace entre les cartes */
+    padding: 0 10px;
 }
 
 /* Colonne pour chaque musicien */
 .col-trombi {
-    flex: 1 1 calc(33.333% - 10px); /* Réduit l'espace autour des colonnes */
-    max-width: 300px; /* Facultatif, peut être réduit si les cartes sont trop grandes */
+    flex: 1 1 calc(30% - 20px); /* Taille plus homogène */
+    max-width: 250px;
     display: flex;
     justify-content: center;
 }
+
 /* Carte du musicien */
 .card.musicien-card {
     background-color: #ffffff;
     border: 1px solid #ddd;
-    border-radius: 10px;
+    border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    max-width: 225px; 
     text-align: center;
 }
 
 /* Image des musiciens */
 .card-img-top {
-    width: 150px; 
-    height: 150px; 
-    object-fit: cover; 
-    border-bottom: 1px solid #ddd;
-    margin: 0 auto;
-    display: block;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%; /* Forme circulaire pour les photos */
+    margin: 15px auto;
+    border: 3px solid #007bff;
 }
 
 /* Corps de la carte */
 .card-body {
-    padding: 15px; /* Réduit l'espace interne */
+    padding: 15px;
 }
 
 .card-title {
-    font-size: 16px; /* Taille de texte légèrement réduite */
+    font-size: 18px;
     font-weight: bold;
     margin-bottom: 8px;
     color: #007bff;
 }
 
 .card-text {
-    font-size: 12px; /* Réduction de la taille du texte */
+    font-size: 14px;
     color: #555;
 }
 
-/* Animation au survol (inchangée) */
+/* Animation au survol */
 .card.musicien-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-
-
-
-
 /* Bouton déconnexion */
 form button {
-    background-color: #dc3545;
+    background-color: #007bff;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -153,5 +147,5 @@ form button {
 }
 
 form button:hover {
-    background-color: #c82333;
+    background-color: #0056b3;
 }
