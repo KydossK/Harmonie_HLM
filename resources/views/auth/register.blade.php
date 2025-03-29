@@ -67,24 +67,26 @@
                     class="mt-1 block w-full border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-blue-100 dark:file:bg-gray-700 file:text-blue-700 dark:file:text-gray-200 hover:file:bg-blue-200">
             </div>
 
+
             <!-- Sélection du pupitre -->
             <div class="mb-4">
-                <label for="pupitre" class="block text-sm font-medium text-gray-200">Pupitre</label>
-                <select name="pupitre" id="pupitre" class="mt-1 block w-full rounded-md bg-gray-800 border border-gray-600 text-white" required>
+                <label for="pupitre_id"
+                    class="block text-sm font-medium text-gray-700 dark:text-gray-200">Pupitre</label>
+                <select name="pupitre_id" id="pupitre_id" required
+                    class="mt-1 block w-full rounded-md bg-gray-800 border border-gray-600 text-white">
                     <option value="">Choisir un pupitre</option>
-                    <option value="Flûte">Flûte</option>
-                    <option value="Hautbois">Hautbois</option>
-                    <option value="Clarinette">Clarinette</option>
-                    <option value="Saxophone">Saxophone</option>
-                    <option value="Cor">Cor</option>
-                    <option value="Trompette">Trompette</option>
-                    <option value="Trombone">Trombone</option>
-                    <option value="Tuba">Tuba</option>
-                    <option value="Percussions">Percussions</option>
-                    <option value="Autre">Autre</option>
+                    @foreach ($pupitres as $pupitre)
+                        <option value="{{ $pupitre->id }}" {{ old('pupitre_id') == $pupitre->id ? 'selected' : '' }}>
+                            {{ $pupitre->nom }}
+                        </option>
+                    @endforeach
                 </select>
+                @error('pupitre_id')
+                    <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
+                @enderror
             </div>
-            
+
+
 
 
             {{-- Bouton --}}

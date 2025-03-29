@@ -35,8 +35,9 @@ class Musicien extends Model
 
     public function pupitre()
     {
-        return $this->belongsTo(Pupitre::class);
+        return $this->belongsTo(\App\Models\Pupitre::class);
     }
+    
     
 
 }
