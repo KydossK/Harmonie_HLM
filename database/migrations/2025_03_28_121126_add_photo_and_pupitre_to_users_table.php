@@ -6,11 +6,11 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    public function up(): void
+    public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('photo')->nullable();    // 📸 Photo du musicien
-            $table->string('pupitre')->nullable();  // 🎺 Pupitre choisi
+            $table->string('pupitre')->nullable();
+            $table->string('photo')->nullable();
         });
     }
 

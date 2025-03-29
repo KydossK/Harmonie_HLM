@@ -36,11 +36,14 @@
         </div>
     @endif
 
-    {{-- ✅ Section principale --}}
-    <section class="max-w-5xl mx-auto px-4 py-8 space-y-10">
+{{-- ✅ Section principale --}}
+<section class="max-w-5xl mx-auto px-4 py-8 space-y-10">
+
+    {{-- ✅ Conteneur bleu principal (englobe toutes les infos utiles) --}}
+    <div class="bg-blue-350 dark:bg-blue-900 dark:text-blue-100 p-6 rounded-lg shadow space-y-6">
 
         {{-- ✅ Bloc informations + boutons à droite --}}
-        <div class="bg-blue-350 dark:bg-blue-900 dark:text-blue-100 p-6 rounded-lg shadow">
+        <div>
             <div class="flex justify-between items-start mb-4">
                 <h2 class="text-2xl font-semibold">Informations pour les Musiciens :</h2>
 
@@ -53,6 +56,7 @@
                             Déconnexion
                         </button>
                     </form>
+                 
 
                     {{-- 🌗 Bouton mode sombre / clair --}}
                     <button
@@ -127,6 +131,7 @@
             </button>
         </div>
     </div>
+    
 </section>
 
 
@@ -200,38 +205,62 @@
 
 
 
-        {{-- 📝 Liste dynamique des inscrits aux prochains défilés (à droite) --}}
-        <div class="bg-yellow-100 dark:bg-yellow-800 dark:text-yellow-100 p-6 rounded-lg shadow">
-            <h2 class="text-xl font-semibold mb-4">📝 Inscrits aux prochains défilés</h2>
-            <p class="text-sm">
-                Voici la liste actualisée des musiciens inscrits aux prochains défilés :
-                // ICI LISTE AUTOMATIQUE DES DATES DEFILES ET SERVICES //
-                PCHAIN DEFILE LE XX/XX // 12 INSCRITS (en gros)
-                en dessous en plus petit  les dates (auto), pas le nb d'inscrits 
-            </p>
+ {{-- 🎺 Prochains Défilés --}}
+<div class="bg-yellow-100 dark:bg-yellow-800 dark:text-yellow-100 p-6 rounded-lg shadow">
+    <h3 class="text-xl font-bold flex items-center gap-2 mb-4">🎺 Inscriptions aux prochains défilés</h3>
 
-            <ul class="mt-3 list-disc list-inside space-y-1 text-sm">
-                <li>🎺 Pierre Dupont (Trompette)</li>
-                <li>🎷 Sophie Martin (Saxophone Alto)</li>
-                <li>🥁 Jean Leroy (Percussions)</li>
-                <li>🎶 <em>et 12 autres inscrits...</em></li>
-            </ul>
+    @if ($defiles->count() > 0)
+        {{-- 🎖️ Défilé principal --}}
+        @php $defile = $defiles[0]; @endphp
+        <div class="mb-4">
+            <p class="text-lg font-semibold">📣 {{ $defile->titre }}</p>
+            <p class="text-sm">📅 {{ $defile->date->format('d/m/Y H:i') }}</p>
+            <p class="text-sm">👥 {{ $defile->users_count }} inscrit(s)</p>
 
-            <div class="mt-4 text-right">
-                <button class="bg-yellow-500 hover:bg-yellow-600 text-white py-1 px-3 rounded">
-                    Voir toute la liste
-                </button>
-            </div>
+            @auth
+                <form method="POST" action="{{ route('defiles.inscription', $defile->id) }}">
+                    @csrf
+                    <button type="submit" class="mt-2 px-3 py-1 bg-green-600 hover:bg-green-700 text-white rounded text-sm">
+                        Je m'inscris
+                    </button>
+                </form>
+            @endauth
         </div>
 
-    </div>
-</section>
+        {{-- 🪶 Deux défilés suivants --}}
+        @foreach ($defiles->skip(1)->take(2) as $defile)
+            <div class="mb-3">
+                <p class="font-semibold">{{ $defile->titre }}</p>
+                <p class="text-sm">📅 {{ $defile->date->format('d/m/Y H:i') }} — 👥 {{ $defile->users_count }} inscrit(s)</p>
+
+                @auth
+                    <form method="POST" action="{{ route('defiles.inscription', $defile->id) }}">
+                        @csrf
+                        <button type="submit" class="mt-1 px-3 py-1 bg-green-600 hover:bg-green-700 text-white rounded text-sm">
+                            Je m'inscris
+                        </button>
+                    </form>
+                @endauth
+            </div>
+        @endforeach
+
+        {{-- Voir tout --}}
+        <div class="text-right mt-4">
+            <a href="{{ route('defiles.index') }}" class="bg-yellow-500 hover:bg-yellow-600 text-white py-1 px-3 rounded">
+                Voir toute la liste
+            </a>
+        </div>
+    @else
+        <p>Aucun défilé à venir pour l’instant.</p>
+    @endif
+</div>
+
 
 
 
                 {{-- Prochain anniversaire --}}
         </div>
-        <div class="bg-yellow-300 dark:bg-yellow-800 dark:text-yellow-100 p-6 rounded-lg shadow">
+        <div class="mt-6 bg-yellow-300 dark:bg-yellow-800 dark:text-yellow-100 p-6 rounded-lg shadow">
             <p class="text-lg">
                 Le prochain anniversaire dans l'harmonie est :<br>
                 @if ($prochainAnniversaire)
@@ -242,6 +271,7 @@
                 @endif
             </p>
         </div>
+    </div>
     </section>
 
 

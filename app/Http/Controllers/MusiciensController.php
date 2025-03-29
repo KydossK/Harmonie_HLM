@@ -7,6 +7,8 @@ use Illuminate\Support\Arr;
 use Carbon\Carbon; // Importez Carbon pour les manipulations de dates
 use App\Models\Musicien; // Importez le modèle Musicien
 use App\Models\Partition; //Importation des partitions partagées 
+use App\Models\Defile;
+
 
 class MusiciensController extends Controller
 {
@@ -58,8 +60,18 @@ class MusiciensController extends Controller
         // Charger les partitions pour l'espace d'échange
         $partitions = Partition::latest()->get();
     
+        
+        $defiles = Defile::withCount('users')
+            ->where('date', '>=', now())
+            ->orderBy('date')
+            ->take(3)
+            ->get();
+
+
+
+
         // Retourner la vue avec les données
-        return view('musiciens', compact('musiciens', 'prochainAnniversaire', 'partitions'));
+        return view('musiciens', compact('musiciens', 'prochainAnniversaire', 'partitions', 'defiles'));
     }
     
 }
