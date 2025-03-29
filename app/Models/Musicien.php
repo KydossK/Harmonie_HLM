@@ -32,4 +32,11 @@ class Musicien extends Model
     {
         return $this->hasMany(Photo::class);
     }
+
+    public function pupitre()
+    {
+        return $this->belongsTo(Pupitre::class);
+    }
+    
+
 }

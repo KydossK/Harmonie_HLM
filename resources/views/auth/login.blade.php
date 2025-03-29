@@ -51,10 +51,15 @@
             </div>
         </form>
 
-        <div class="text-center mt-6 space-y-2">
-            <a href="/" class="text-blue-500 hover:underline text-sm">&larr; Retour à l'accueil</a><br>
-            <a href="{{ route('register') }}" class="text-blue-500 hover:underline text-sm">Créer un compte</a>
-        </div>
+    <div class="text-center mt-6 space-y-2">
+    <a href="/" class="inline-block text-base font-semibold text-blue-600 hover:underline">
+        &larr; Retour à l'accueil
+    </a><br>
+    <a href="{{ route('register') }}" class="inline-block text-sm text-blue-500 hover:underline">
+        Créer un compte
+    </a>
+</div>
+
         
     </div>
 

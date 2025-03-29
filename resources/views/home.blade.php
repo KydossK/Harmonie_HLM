@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harmonie Municipale</title>
+    <title>Harmonie Hellemmes-Lille</title>
     <link rel="icon" href="{{ asset('Img/blason-no-bg.jpeg') }}" type="image/jpeg">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -14,7 +14,7 @@
             <img src="{{ asset('Img/mairie-hellemmes.jpg') }}" alt="Image Header" class="w-full h-full object-cover">
         </div>
         <div class="text-center py-6">
-            <h1 class="text-3xl md:text-5xl font-bold">Harmonie Municipale<br>de Hellemmes-Lille</h1>
+            <h1 class="text-3xl md:text-5xl font-bold">Harmonie<br>de Hellemmes-Lille</h1>
         </div>
         <nav class="bg-gray-800 py-4">
             <ul class="flex justify-center gap-6 text-lg md:text-xl">
@@ -39,10 +39,10 @@
     <main class="px-6 py-10 max-w-4xl mx-auto">
         <section class="mb-12">
             <div class="text-center max-w-4xl mx-auto">
-                <h2 class="text-2xl font-semibold mb-4">À propos de l'Harmonie Municipale</h2>
+                <h2 class="text-2xl font-semibold mb-4">À propos de l'Harmonie</h2>
         
                 <p class="text-lg leading-relaxed">
-                    L'Harmonie Municipale d'Hellemmes est une institution musicale emblématique de notre ville, célébrant en 2008 son 
+                    L'Harmonie d'Hellemmes est une institution musicale emblématique de notre ville, célébrant en 2008 son 
                     <strong>150ᵉ anniversaire</strong>.
                 </p>
         
@@ -77,7 +77,7 @@
         <section class="mb-12 bg-yellow-50 dark:bg-yellow-800 dark:text-yellow-100 p-6 rounded-xl shadow-md">
             <h2 class="text-2xl font-semibold mb-4">🎵 Une aventure musicale et humaine</h2>
             <p class="text-lg leading-relaxed">
-                L’Harmonie Municipale d’Hellemmes est bien plus qu’un simple orchestre. C’est un lieu de rencontre entre passionnés, un creuset de liens intergénérationnels et un symbole de la vie culturelle locale.
+                L’Harmonie d’Hellemmes est bien plus qu’un simple orchestre. C’est un lieu de rencontre entre passionnés, un creuset de liens intergénérationnels et un symbole de la vie culturelle locale.
             </p>
             <br>
             <p class="text-lg leading-relaxed">
@@ -89,7 +89,7 @@
         <section class="bg-gray-100 p-6 rounded-xl shadow-md">
             <h2 class="text-2xl font-semibold mb-4 text-center">L'Harmonie Recrute</h2>
             <p class="text-lg text-center">
-                Vous êtes musicien amateur et possédez le niveau nécessaire pour jouer en harmonie municipale ?<br><br>
+                Vous êtes musicien amateur et possédez le niveau nécessaire pour jouer en harmonie ?<br><br>
                 Rejoignez-nous chaque vendredi soir à 19h30 pour les répétitions,<br>
                 à l'école de musique de Hellemmes.<br>
                 Adresse : 1A Rue François Marceau, 59260 Lille
@@ -99,8 +99,14 @@
     
 
 
-    <footer class="bg-gray-900 text-white text-center py-6 mt-10">
-        <p>&copy; 2024 Harmonie Municipale de Hellemmes. Tous droits réservés. Pierre Plé</p>
+    <footer class="bg-gray-900 text-white text-center py-6 mt-10 space-y-2">
+        <p>&copy; 2025 Harmonie de Hellemmes. Tous droits réservés. Pierre Plé</p>
+        <p>
+            <a href="{{ route('mentions') }}" class="text-sm text-blue-400 hover:underline">
+                Mentions légales
+            </a>
+        </p>
     </footer>
+    
 </body>
 </html>

@@ -73,6 +73,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/partitions', [PartitionController::class, 'index'])->name('partitions.index');
     Route::post('/partitions', [PartitionController::class, 'store'])->name('partitions.store');
 
-    // Ajoute précisément cette route pour télécharger les partitions :
-    Route::get('/partitions/telecharger/{id}', [PartitionController::class, 'telecharger'])->name('partition.telecharger');
+// Ajoute précisément cette route pour télécharger les partitions :
+Route::get('/partitions/telecharger/{id}', [PartitionController::class, 'telecharger'])->name('partition.telecharger');
 });
+
+//Route Mentions Legales
+Route::view('/mentions-legales', 'mentions-legales')->name('mentions');
+
